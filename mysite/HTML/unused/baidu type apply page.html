@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply</title>
+
+    <link rel="styleSheet" href="/static/common.css" />
+    <link rel="styleSheet" href="/static/btn.css" />
+    <link rel="stylesheet" type="text/css" href="https://fanyi-cdn.cdn.bcebos.com/static/translation/pkg/public_346efc3.css">
+    <link rel="stylesheet" type="text/css" href="https://fanyi-cdn.cdn.bcebos.com/static/translation/pkg/index_258a4b9.css">
+    <link rel="stylesheet" type="text/css" href="https://wappass.baidu.com/static/machine/css/api/mkd_7fa0033.css">
+</head>
+
+<body>
+    <div style="float: right;padding-right: 2rem;">
+        <a class="btn2_blank btn-border1" href="/app02/home"> home </a><a class="btn2_colored btn-border2" href="/app02/apply">apply</a>
+    </div>
+
+    <div style="padding: 30px;background-color: #fff;"></div>
+    <form method='POST' action="/app02/apply" class="tex_input center inner">
+        <div class="trans-left">
+            <div class="trans-input-wrap">
+                <div class="image-wrap">
+                    <div id="image-holder" style="background-image: none;"></div>
+                </div>
+                <div class="input-wrap" style="height: auto;">
+                    <div class="textarea-bg-text" id="textarea-bg-text"></div>
+
+                    <textarea type="text " placeholder="Input a sentence or a paragraph " class="tex_input textarea" name="sentence"></textarea>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="trans-right">
+            <div class="output-wrap output-blank" data-domain-value="common" style="height: 137px;"></div>
+            <p class="ordinary-output target-output clearfix"> <span left-pos="0|3" right-pos="0|3" space="" class="">match</span> </p>
+            <span class="hover-tips-wrap" id="hover-tips" style="display: none; top: -19998px; left: -19998px;">
+            <span class="tips-content"></span>
+            <span class="tips-arrow-down"></span>
+            </span>
+        </div>
+        <div>
+            <p class="warning">{{warn}}</p>
+            <p>{{aft}}</p><input type="submit" class="btn1 btn-border3" value="RUN"></div>
+    </form>
+
+
+</body>
+
+</html>

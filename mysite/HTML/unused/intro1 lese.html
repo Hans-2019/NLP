@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>intro1</title>
+    <link rel="styleSheet" href="/static/common.css" />
+    <link rel="styleSheet" href="/static/btn.css" />
+
+    <!-- bootstrap css -->
+    <base href="/">
+    <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="static/css/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="static/images/fevicon.png" type="image/gif">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="static/css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="static/css/font-awesome.css">
+    <!-- owl stylesheets -->
+    <link rel="stylesheet" href="static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="static/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="static/css/jquery.fancybox.min.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="static\bootstrap-3.3.7-dist\css\bootstrap.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        table {
+            /*设置相邻单元格的边框间的距离*/
+            margin: 0 auto;
+            border-spacing: 0;
+            /*表格设置合并边框模型*/
+            border-collapse: collapse;
+            text-align: center;
+        }
+        /*关键设置 tbody出现滚动条*/
+        
+        table tbody {
+            display: block;
+            height: 500px;
+            overflow-y: scroll;
+        }
+        
+        table thead,
+        tbody tr {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+        }
+        /*关键设置：滚动条默认宽度是16px 将thead的宽度减16px*/
+        
+        table thead {
+            width: 99%;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="float: right;padding-right: 2rem;">
+        <a class="btn2_blank" href="/app01/home"> home </a><a class="btn2_colored" href="/app01/intro1">intro1</a><a class="btn2_blank" href="/app01/intro2">intro2</a>
+
+    </div>
+    <div style="padding: 30px;background-color: #fff;">
+    </div>
+
+
+
+    <div class="banner_section layout_padding">
+        <div class="container">
+            <h1 class="ballet_text">属性网络 Attribute Network</h1>
+            <ul>
+                <li>
+                    <p class="amet_text">用户购买物品往往基于一定的品味与偏好，因此出现在用户购买记录中的物品通常有相似特征，基于这样的联系可以构建属性网络（attribute network）。在以往的相似性关系中，同一用户购买的物品之间总是没有区别的。基于属性网络，物品之间的区别可以体现出来，例如图一，A由于有类似的演员从而与C、D、E之间联系紧密，而B却是因为共同的导演与F、G联系更紧密。虽然用户都观看了电影A、B，但其内在的原因却是不同的，如果用户更倾向于特定的演员，那么他可能更愿意选择C、D而不是F、G。
+                    </p>
+                    <div>
+                        <div align="center"><img src="static/images/attr-net.jpg"></div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="container">
+            <h2>关于用户偏好</h2>
+            <blockquote>
+                <ul>
+                    <li>
+                        属性网络可以清晰的解释用户的个性化偏好。在上图中，用户对于演员的偏好可以在演员网络（actor-network）中予以呈现，而对于导演的偏好可以在导演网络（director-network）中呈现。<br>
+                    </li>
+                </ul>
+            </blockquote>
+        </div>
+        <div class="container">
+            <h2>关于高等级关系</h2>
+            <blockquote>
+                <ul>
+                    <li>
+                        另外，传统基于内容的方法往往独立地处理用户属性，从而丢失了高等级的关系。在上图中，A与D同处于演员网络（actor-network）中，但由于没有共同演员，传统方法会将它们间的相似性评分为0，可由于它们都有共同演员的电影C，因此它们之间本应有一定的相似性。
+                    </li>
+                </ul>
+            </blockquote>
+        </div>
+        <div class="container">
+            <h2>关于网络拆分</h2>
+            <blockquote>
+                <li>我们从共同购买网络（co-purchased network）拆分得到属性网络。假设共同购买网络为G =&lt;V,E&gt;，其中点的连接代表了它们被同一用户共同购买过。基于k个属性，我们可以得到k个G的子图，在每个子图中，保留有相同属性特征的邻接点。因此，从共同购买网络G，可以得到k个属性网络 。
+                </li>
+            </blockquote>
+        </div>
+    </div>
+</body>
+
+</html>

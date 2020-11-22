@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>intro1</title>
+    <link rel="styleSheet" href="/static/common.css" />
+    <link rel="styleSheet" href="/static/btn.css" />
+    <link rel="styleSheet" href="/static/text.css" />
+
+    <link rel="styleSheet" href="/static/intro1.css" />
+</head>
+
+
+
+<body>
+    <div style="float: right;padding-right: 2rem;">
+        <a class="btn2_blank" href="/app01/home"> home </a><a class="btn2_colored" href="/app01/intro1">intro1</a><a class="btn2_blank" href="/app01/intro2">intro2</a>
+
+    </div>
+    <div style="padding: 30px;background-color: #fff;">
+    </div>
+    <div class="center bottom_gray" style="background: #f0f0f0;">
+        <br>
+        <div class="container  top_gray"></div>
+        <h2 style="font-size: 32px;font-family: 'Microsoft JhengHei'">模型介绍</h2>
+    </div>
+    <div>
+        <h2 class="center" style="margin-bottom: 0px;">1 任务内容</h2>
+        <hr style="align:center;width:62%">
+
+        <div class="text_information">
+
+            本文主要实现的任务为实体识别和关系抽取。HSLNN模型通过打标签的方式实现从一段文本中找出相应的实体，并挖掘实体之间的关系。 标记机制（Hierarchical Tagging Scheme）
+            <ul>
+                <li>
+                    实体标签：<br><b>BIOES</b> BIOES用于标记一个单词的类别，将单词在文中和实体中的地位分为<b>B</b>egin（实体首词）,<b>I</b>nside（实体内部）,<b>O</b>utside（非实体）,<b>E</b>nd（实体尾词）,<b>S</b>ingle（单个实体词）
+                </li>
+                <li>
+                    关系标签：**关系类型+实体顺序** 一个关系标签分为两部分，首先前半部分从预定义的关系标签中选择，后半部分根据标签所在的实体在关系中的位置决定。若是关系中的第一个元素，则为“1”，反之为“2”
+                </li>
+                <li>
+                    实例
+                </li>
+            </ul>
+
+        </div>
+
+        <div>
+            <h2 class="center" style="margin-bottom: 0px;">HSLMM概述</h2>
+            <hr style="align:center;width:62%">
+
+            <p class="text_information">
+                <b>Stage1: Recongnize Entity 识别实体</b><br> This is an application to show our researchs. You can input a sentence or a paragraph, then a triplet containing two entities along with their semantic relation will be given to show the relation
+                in the sentence or the paragraph.If you want to try it, click "try it" button. And you can click "back to intro" button to go back to the introduction page.
+                <br><br><b>Stage2: Identity Relation 抽取关系</b><br></p>
+        </div>
+
+        <div>
+            <h2 class="center" style="margin-bottom: 0px;">模型定义</h2>
+            <hr style="align:center;width:62%">
+
+            <p class="text_information">
+                <b>Stage1: Recongnize Entity 识别实体</b><br> This is an application to show our researchs. You can input a sentence or a paragraph, then a triplet containing two entities along with their semantic relation will be given to show the relation
+                in the sentence or the paragraph.If you want to try it, click "try it" button. And you can click "back to intro" button to go back to the introduction page.
+                <br><br><b>Stage2: Identity Relation 抽取关系</b>
+                <br><br><b>Tag-based Attention 注意力机制</b></p>
+        </div>
+
+        <div>
+            <h2 class="center" style="margin-bottom: 0px;">损失函数</h2>
+            <hr style="align:center;width:62%">
+
+            <p class="text_information">
+                <b>Stage1: Recongnize Entity 识别实体</b><br> This is an application to show our researchs. You can input a sentence or a paragraph, then a triplet containing two entities along with their semantic relation will be given to show the relation
+                in the sentence or the paragraph.If you want to try it, click "try it" button. And you can click "back to intro" button to go back to the introduction page.
+                <br><br><b>Stage2: Identity Relation 抽取关系</b><br></p>
+        </div>
+</body>
+
+</html>

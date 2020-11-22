@@ -1,0 +1,108 @@
+h2 {
+    font-size: 32px;
+    font-family: 'Microsoft JhengHei';
+}
+
+.text_information {
+    text-align: left;
+    font-size: 16px;
+    font-family: "Segoe UI";
+    padding-right: 19%;
+    padding-left: 19%;
+    line-height: 24px;
+}
+
+.text_information2 {
+    text-align: left;
+    font-size: 16px;
+    font-family: "Segoe UI";
+    padding-right: 23%;
+    padding-left: 23%;
+    line-height: 24px;
+}
+
+.text_information2 {
+    text-align: left;
+    font-size: 16px;
+    font-family: "Segoe UI";
+    line-height: 24px;
+}
+
+.text_input {
+    width: 620px;
+    height: 144px;
+}
+
+.tex_input textarea::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: #dfdce3;
+    font-family: "HeiTi";
+    font-size: 20px;
+}
+
+.tex_input2 {
+    width: 45%;
+    height: 140px;
+    resize: none;
+    font-size: 26px;
+    font-weight: 400;
+    padding-top: 10px;
+    padding-left: 10px;
+    font-family: 'HeiTi';
+    border-width: 1px;
+    border-color: #8f8d8d;
+    outline-color: #4abdac
+}
+
+.txa_tran {
+    transition: border-color .15s ease-in-out;
+}
+
+.txa_tran:hover {
+    border-color: #4abdac;
+}
+
+.tex_show {
+    width: 50%;
+    height: 142px;
+    padding-top: 10px;
+    padding-left: 10px;
+    background-color: #dfdce3;
+    text-align: left;
+    font-size: 26px;
+    font-family: 'HeiTi';
+    resize: none;
+    border: none;
+    outline: none;
+}
+
+.tex_show2 {
+    width: 40%;
+    height: 142px;
+    padding-top: 10px;
+    padding-left: 10px;
+    background-color: #f0f0f0;
+    text-align: center;
+    font-size: 26px;
+    font-family: 'HeiTi';
+    resize: none;
+    border: none;
+    outline: none;
+}
+
+blockquote.style2 {
+    font: 14px/22px normal helvetica, sans-serif;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 50px;
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    border-left: 3px solid #ccc;
+    background-color: #f1f1f1
+}
+
+.centered {
+    text-align: center;
+}

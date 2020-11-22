@@ -1,0 +1,33 @@
+.bottom_gray {
+    padding-bottom: 30px;
+    background: #e9ecef;
+}
+
+.text_introduction {
+    text-align: left;
+    font: 20px 'DengXian';
+    padding-right: 19%;
+    padding-left: 19%;
+}
+
+
+/*.text_introduction:before {
+    content: "Introduction: ";
+    font: 20px 'DengXian';
+    font-weight: 600;
+}*/
+
+.warning {
+    color: #fc4a1a;
+}
+
+.section {
+    padding-top: 30px;
+}
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction</title>
+    <link rel="styleSheet" href="/static/common.css" />
+    <link rel="styleSheet" href="/static/btn1.css" />
+
+    <link rel="styleSheet" href="/static/text1.css" />
+    <link rel="styleSheet" href="/static/btn2.css" />
+
+
+    <!-- bootstrap css -->
+    <base href="/">
+    <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="static/css/style1.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="static/css/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="static/images/fevicon.png" type="image/gif">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="static/css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="static/css/font-awesome.css">
+    <!-- owl stylesheets -->
+    <link rel="stylesheet" href="static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="static/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="static/css/jquery.fancybox.min.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="static\bootstrap-3.3.7-dist\css\bootstrap.css">
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_HTMLorMML-full"></script>
+
+    <style>
+        blockquote {
+            margin: 20px 0 20px;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <div style="float: right;padding-right: 2rem;">
+        <a class="btn2_blank" href="/app01/home"> Home </a><a class="btn2_colored" href="/app01/intro">Intro</a><a class="btn2_blank" href="/app01/define">Definition</a><a class="btn2_blank" href="/app01/loss_func">LossFunc</a>
+        <br>
+    </div>
+    </div>
+
+    </div>
+    <div style="padding: 30px;background-color: #fff;">
+    </div>
+
+
+    <div class="banner_section layout_padding">
+        <div class="container">
+            <h1 class="ballet_text">模型介绍</h1>
+
+        </div>
+
+        <div class="container">
+            <h2>1. 任务内容</h2>
+            <blockquote>
+                <ul>
+                    <li>
+                        本文主要实现的任务为实体识别和关系抽取。HSLNN模型通过打标签的方式实现从一段文本中找出相应的实体，并挖掘实体之间的关系。
+                    </li>
+                    <li>
+                        <br> 标记机制（Hierarchical Tagging Scheme）:
+                        <blockquote>
+                            <ul>
+                                <li>实体标签：<b>BIOES</b><br> BIOES用于标记一个单词的类别，将单词在文中和实体中的地位分为<b>B</b>egin（实体首词）,<b>I</b>nside（实体内部）,<b>O</b>utside（非实体）,<b>E</b>nd（实体尾词）,<b>S</b>ingle（单个实体词）</li>
+                                <li><br>关系标签：<br><b>关系类型+实体顺序</b> 一个关系标签分为两部分，首先前半部分从预定义的关系标签中选择，后半部分根据标签所在的实体在关系中的位置决定。若是关系中的第一个元素，则为“1”，反之为“2”</li>
+                                <li>
+                                    <br>实例<br>
+                                    <table border="1" class="centered" style="margin: 10px auto;">
+                                        <tr>
+                                            <th> </th>
+                                            <th> The </th>
+                                            <th>United</th>
+                                            <th>States</th>
+                                            <th>Prisident</th>
+                                            <th>Trump</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Word Label</td>
+                                            <td>O</td>
+                                            <td>B</td>
+                                            <td>E</td>
+                                            <td>O</td>
+                                            <td>S</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Relation Label</td>
+                                            <td>{O}</td>
+                                            <td>{CountryPresident-1}</td>
+                                            <td>{CountryPresident-1}</td>
+                                            <td>{O}</td>
+                                            <td>{CountryPresident-2}</td>
+                                        </tr>
+                                    </table>
+                                </li>
+                            </ul>
+                        </blockquote>
+                    </li>
+                </ul>
+            </blockquote>
+        </div>
+        <div class="container">
+            <h2>2. HSLNN图示</h2>
+            <blockquote>
+                <ul>
+                    <li>
+                        <center>
+                            <img src="/static/img/intro_img1.png " width="800px ">
+                        </center>
+                    </li>
+                </ul>
+            </blockquote>
+        </div>
+        <div class="container">
+            <h2>3. 创新之处</h2>
+            <blockquote>
+                <li>1、将分类任务转换成序列标签任务。通过序列标签可以有效防止<b>噪声实体对</b>对于传统分类器的不利影响
+                </li>
+                <li>2、采用两阶段模型，有效减少了模型中的标签数量，有效提高了训练时的效率，有助于进一步提升模型表现
+                </li>
+                <li>
+                    3、通过基于标签的注意力机制，将关系抽取的注意力放在相关实体词和触发词上
+                </li>
+            </blockquote>
+        </div>
+    </div>
+</body>
+
+</html>

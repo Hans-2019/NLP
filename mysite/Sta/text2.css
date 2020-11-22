@@ -1,0 +1,22 @@
+.tex_input3 {
+    width: 90%;
+    height: 80%;
+    resize: none;
+    font-size: 22px;
+    font-weight: 400;
+    padding-top: 10px;
+    padding-left: 10px;
+    font-family: 'HeiTi';
+    border-width: 1px;
+    border-color: #8f8d8d;
+    outline-color: #4abdac
+}
+
+.text_input22 {
+    width: 90%;
+    height: 80%;
+}
+
+.centeredd {
+    text-align: center;
+}

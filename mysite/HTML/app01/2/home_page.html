@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>intro home</title>
+    <link rel="styleSheet" href="/static/common.css" />
+    <link rel="styleSheet" href="/static/btn1.css" />
+    <link rel="styleSheet" href="/static/text1.css" />
+
+    <link rel="styleSheet" href="/static/btn2.css" />
+</head>
+
+
+
+<body>
+
+    <div style="float: right;padding-right: 2rem;">
+        <a class="btn2_colored" href="/app01/home"> Home </a><a class="btn2_blank" href="/app01/intro">Intro</a><a class="btn2_blank" href="/app01/define">Definition</a><a class="btn2_blank" href="/app01/loss_func">LossFunc</a><a class="btn2_blank btn-border2"
+            href="/app02/apply">Apply</a>
+        <br>
+    </div>
+    </div>
+    <div style="padding: 30px;background-color: #fff;">
+    </div>
+
+    <div class="center" style="padding-bottom: 20px;background: #4abdac;text-align: center;">
+        <br>
+        <div class="container  top_gray"></div>
+        <h2 style="color: #fff">
+            Joint Entity and Relation Extraction:
+            <br> A Hierarchical Sequence Labeling Approach
+        </h2>
+        <h3 style="font-size:26px;font-family: 'Microsoft JhengHei';color: #fff;">Autumn 2020</h3>
+        <hr>
+        <p class="text_introduction center " style="padding-left:25%;padding-right: 25%;">a two-layer sequence model to identify entity and relation respectively, which decreases the number of tags<br></p>
+    </div>
+    <div class="center" style="padding-bottom: 10px;padding-top:8px;background-color: #f0f0f0; ">
+        <p class=" text_introduction center">This is an application to show our researchs. You can input a sentence or a paragraph, then a triplet containing two entities along with their semantic relation will be given to show the relation in the sentence or the paragraph.<br></p>
+    </div>
+    <div style="background-color: #f0f0f0; ">
+        <div style="padding-top: 50px "></div>
+        <form method='POST' class="tex_input center ">
+
+            <div style="width:80%; padding-left: 15%;padding-right: 10%; ">
+                <textarea type="text " placeholder="Input a sentence or a paragraph " class="btn-border1 tex_input2 txa_tran " name="sentence">{{bfr}}</textarea>
+                <textarea type="text " class="btn-border2 tex_show " name="sentence " disabled="disabled ">{{aft}}</textarea></span>
+            </div>
+
+            <div style="padding-top: 30px;" class="centered">
+
+                <input type="submit" class="btn1 btn-border3" value="RUN to Apply" style="float: none;"></div>
+
+            <div style="padding-bottom: 50px">
+                <p class="warning centered "> {{warn}} </p>
+            </div>
+        </form>
+    </div>
+
+    <div style="padding-left: 7%;padding-right: 5%;padding-top:45px; padding-bottom: 150px;background-color:#f0f0f0 ">
+        <div style="width:250px;background-color: #fff;display:inline-block; " class="btn-border3 ">
+            <img src="/static/img/animal1.jpg " width="250px ">
+
+            <div style=" margin:15px; ">
+                <h3>模型介绍</h3>
+                <p class="text_information3 ">在这部分中包含了任务内容、HSLNN模型的图示以及HSLNN模型的创新之处.</p>
+                <div>
+                    <a href="/app01/intro " class="btn1 btn-border1 btn-border3 ">点击查看</a>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div style="padding:3%;display:inline-block "></div>
+        <div style="width:250px;background-color: #fff;display:inline-block;  " class="btn-border3 ">
+            <img src="/static/img/animal2.jpg " width="250px ">
+
+            <div style=" margin:15px; ">
+                <h3>模型定义</h3>
+                <p class="text_information3 ">这部分包含了HSLNN模型的理论基础，两阶段模型的定义，以及注意力机制的实现.</p>
+                <div>
+                    <a href="/app01/define " class="btn1 btn-border1 btn-border3 ">点击查看</a>
+                </div>
+            </div>
+
+        </div>
+        <div style="padding:3%;display:inline-block "></div>
+        <div style="width:250px;background-color: #fff;display:inline-block; " class="btn-border3 ">
+            <img src="/static/img/animal3.jpg " width="250px ">
+
+            <div style=" margin:15px; ">
+                <h3>损失函数</h3>
+                <p class="text_information3 ">在这部分中包含了整个<br>HSLNN模型损失函数的构建过程.</p>
+                <div>
+                    <a href="/app01/loss_func " class="btn1 btn-border1 btn-border3 ">点击查看</a>
+                </div>
+            </div>
+
+        </div>
+        <div style="padding:3%;display:inline-block "></div>
+        <div style="width:250px;background-color: #fff;display:inline-block; " class="btn-border3 ">
+            <img src="/static/img/animal4.jpg " width="250px ">
+
+            <div style=" margin:15px; ">
+                <h3>研究展示</h3>
+                <p class="text_information3 ">在这部分中我们设计了一个展示页面，输入一个句子或者一段话获取到输出结果.</p>
+                <div>
+                    <a href="/app02/home " class="btn1 btn-border1 btn-border3 ">点击查看</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

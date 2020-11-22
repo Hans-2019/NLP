@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply</title>
+
+    <link rel="styleSheet" href="/static/common.css" />
+    <link rel="styleSheet" href="/static/btn1.css" />
+    <link rel="styleSheet" href="/static/text1.css" />
+
+</head>
+
+<body>
+
+    <div style="float: right;padding-right: 2rem;">
+        <a class="btn2_blank" href="/app01/home"> Home </a><a class="btn2_blank" href="/app01/intro">Intro</a><a class="btn2_blank" href="/app01/define">Definition</a><a class="btn2_blank" href="/app01/loss_func">LossFunc</a><a class="btn2_colored btn-border2"
+            href="/app02/apply">Apply</a>
+    </div>
+
+    <div style="padding: 30px;background-color: #fff;"></div>
+
+
+
+    <div class="centered bottom_gray" style="background: #f0f0f0;">
+
+        <div style="padding-top: 20px;padding-left:20%;padding-right:20%;background-color: #f0f0f0ff;"></div>
+        <h2 style="font-size: 32px;">Entity and Relation Extractor</h2>
+
+        <p class=" text_introduction center">This is an application to show our researchs. You can input a sentence or a paragraph, then a triplet containing two entities along with their semantic relation will be given to show the relation in the sentence or the paragraph.<br></p>
+    </div>
+    <div style="background-color: #f0f0f0;">
+        <form method='POST' action="/app02/apply" class="tex_input center">
+
+            <div style="width:80%; padding-left: 15%;padding-right: 10%;">
+                <textarea type="text " placeholder="Input a sentence or a paragraph " class="btn-border1 tex_input2 txa_tran" name="sentence">{{bfr}}</textarea>
+                <textarea type="text " class="btn-border2 tex_show" name="sentence" disabled="disabled">{{aft}}</textarea></span>
+            </div>
+
+            <div style="padding-top: 30px;" class="centered">
+
+                <input type="submit" class="btn1 btn-border3" value="RUN" style="float: none;"></div>
+
+            <div style="padding-bottom: 50px">
+                <p class="warning centered"> {{warn}} </p>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>

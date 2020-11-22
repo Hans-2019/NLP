@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loss Function</title>
+    <link rel="styleSheet" href="/static/common.css" />
+    <link rel="styleSheet" href="/static/btn1.css" />
+
+    <link rel="styleSheet" href="/static/text1.css" />
+    <link rel="styleSheet" href="/static/btn2.css" />
+
+    <!-- bootstrap css -->
+    <base href="/">
+    <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="static/css/style1.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="static/css/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="static/images/fevicon.png" type="image/gif">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="static/css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="static/css/font-awesome.css">
+    <!-- owl stylesheets -->
+    <link rel="stylesheet" href="static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="static/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="static/css/jquery.fancybox.min.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="static\bootstrap-3.3.7-dist\css\bootstrap.css">
+
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        blockquote {
+            margin: 20px 0 20px;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <div style="float: right;padding-right: 2rem;">
+        <a class="btn2_blank" href="/app01/home"> Home </a><a class="btn2_blank" href="/app01/intro">Intro</a><a class="btn2_blank" href="/app01/define">Definition</a><a class="btn2_colored" href="/app01/loss_func">LossFunc</a><a class="btn2_blank btn-border2"
+            href="/app02/apply">Apply</a>
+        <br>
+    </div>
+    <div class="banner_section layout_padding">
+        <div class="container">
+            <h1 class="ballet_text">损失函数</h1>
+
+        </div>
+
+        <div class="container">
+            <blockquote>
+                <ul>
+                    <li>
+                        模型训练的目标是最小化实际值和预测值之间的交叉熵。据此，论文中的损失函数包括两个阶段，为
+                        <p style="text-align: center;">$$L=L_e+L_r$$</p>
+                    </li>
+                    <li>
+                        <li>
+                            Le反应的是预测实体标签中的损失，由于<b>一个实体的实体标签是唯一</b>的，故损失函数采用常规的多类交叉熵损失函数（categorical cross-entropy）
+                            <p style="text-align: center;">
+                                $$\begin{equation} \begin{aligned} L_e=&-\frac{1}{S}\sum_{j=1}^{S}\sum_{k=1}^{N_j}y^e_k\log P(t^e_k|m_k,\Theta)\\ \end{aligned} \end{equation}$$
+                                <!-`L_e=-\frac{1}{S}\sum_{j=1}^{S}\sum_{k=1}^{N_j}y_k^e\log P(t_k^e|m_k,\Theta)`->
+                            </p>
+                        </li>
+                        <li>
+                            Lr 反应的是预测关系中的损失，由于<b>一个实体有多个关系标签</b>，故损失函数采用二分类的交叉熵（binary cross-entropy）
+                            <p style="text-align: center;">
+                                $$\begin{equation} \begin{aligned} L_r=&-\frac{1}{S}\sum_{j=1}^{S}(\sum_{k=1}^{N_j}\sum_{i=1}^{N_r}({y^r_k}_i\log P({t^r_k}_i|x_k,\Theta)\\ &+(1-{y^r_k}_i)\log (1-P({t^r_k}_i|x_k,\Theta)))\\ \end{aligned} \end{equation}$$
+                                <!-`L_r=-\frac{1}{S}\sum_{j=1}^{S}(\sum_{k=1}^{N_j}\sum_{i=1}^{N_r}(y_{ki}^r\log P(t_{ki}^r|x_k,\Theta)+(1-y_{ki}^r)\log (1-P(t_{ki}^r|x_k,\Theta)))`->
+                            </p>
+                        </li>
+                    </li>
+                    <li>
+                        由于在文本中，大量的词语不是实体，也没有相应的关系。如果直接最小化上述损失函数，将会导致模型更倾向于选择标记非实体`O`，也不抽取关系。 <br><b>为了防止模型退化</b>，引入指示函数（其中O为BIOES中的标签O，表示该单词非实体）
+
+                        <p style="text-align: center ;">
+
+                            <br> $$ \begin{equation}I(\text{'$O$'}) =\begin{cases}1, & \text{if $\text{tag} \neq \text{'$O$'}$} \\0, & \text{if $\text{tag} = \text{'$O$'}$}\end{cases}\end{equation} $$
+                        </p>
+                    </li>
+                    <li>
+                        综上，改造后的`Le`和`Lr`如下所示
+                        <blockquote>
+                            <ul>
+                                <li>
+                                    <b>Entity Block：Le</b>
+                                    <p style="text-align: center;">
+                                        <!- 注释的内容  `L_e=-\frac{1}{S}\sum_{j=1}^{S}(\alpha_e\sum_{k=1}^{N_j}y_k^e\log P(t_k^e|m_k,\Theta)I(\text{'O'})+\sum_{k=1}^{N_j}y_k^e\log P(t_k^e|m_k,\Theta)(1-I(\text{'O'})))` ->$$\begin{equation}\begin{aligned}L_e=&-\frac{1}{S}\sum_{j=1}^{S}(\alpha_e\sum_{k=1}^{N_j}y^e_k\log P(t^e_k|m_k,\Theta)I(\text{'$O$'})\\&+\sum_{k=1}^{N_j}y^e_k\log P(t^e_k|m_k,\Theta)(1-I(\text{'$O$'})))\end{aligned}\end{equation}
+                                        $$
+                                    </p>
+                                </li>
+                                <li>
+                                    <b>Relation Block：Lr</b>
+                                    <div>
+                                        <!- `L_r=-\frac{1}{S}\sum_{j=1}^{S}(\alpha_r\sum_{k=1}^{N_j}\sum_{i=1}^{N_r}(y_{ki}^r\log P(t_{ki}^r|x_k,\Theta)` `+(1-y_{ki}^r)\log (1-P(t_{ki}^r|x_k,\Theta)))I(\text{'O'})` +\sum_{k=1}^{N_j}\sum_{i=1}^{N_r}(y_{ki}^r\log
+                                        P(t_{ki}^r|x_k,\Theta)` +(1-y_{ki}^r)\log (1-P(t_{ki}^r|x_k,\Theta)))(1-I(\text{'O'})))`
+                                        <p style="text-align:center;">$$\begin{equation} \begin{aligned} L_r=&-\frac{1}{S}\sum_{j=1}^{S}(\alpha_r\sum_{k=1}^{N_j}\sum_{i=1}^{N_r}({y^r_k}_i\log P({t^r_k}_i|x_k,\Theta)\\ &+(1-{y^r_k}_i)\log (1-P({t^r_k}_i|x_k,\Theta)))I(\text{'$O$'})\\
+                                        &+\sum_{k=1}^{N_j}\sum_{i=1}^{N_r}({y^r_k}_i\log P({t^r_k}_i|x_k,\Theta)\\ &+(1-{y^r_k}_i)\log (1-P({t^r_k}_i|x_k,\Theta)))(1-I(\text{'$O$'}))) \end{aligned} \end{equation}$$
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </blockquote>
+                    </li>
+                </ul>
+            </blockquote>
+        </div>
+
+    </div>
+</body>
+
+</html>

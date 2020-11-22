@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Defination</title>
+    <link rel="styleSheet" href="/static/common.css" />
+    <link rel="styleSheet" href="/static/btn1.css" />
+
+    <link rel="styleSheet" href="/static/text1.css" />
+    <link rel="styleSheet" href="/static/btn2.css" />
+
+
+    <!-- bootstrap css -->
+    <base href="/">
+    <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="static/css/style1.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="static/css/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="static/images/fevicon.png" type="image/gif">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="static/css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="static/css/font-awesome.css">
+    <!-- owl stylesheets -->
+    <link rel="stylesheet" href="static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="static/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="static/css/jquery.fancybox.min.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="static\bootstrap-3.3.7-dist\css\bootstrap.css">
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_HTMLorMML-full"></script>
+    <style>
+        blockquote {
+            margin: 20px 0 20px;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <div style="float: right;padding-right: 2rem;">
+        <a class="btn2_blank" href="/app01/home"> Home </a><a class="btn2_blank" href="/app01/intro">Intro</a><a class="btn2_colored" href="/app01/define">Definition</a><a class="btn2_blank" href="/app01/loss_func">LossFunc</a>
+        <br>
+    </div>
+    </div>
+
+    </div>
+    <div style="padding: 30px;background-color: #fff;">
+    </div>
+
+
+    <div class="banner_section layout_padding">
+        <div class="container">
+            <h1 class="ballet_text">模型定义</h1>
+
+        </div>
+
+        <div class="container">
+            <h2>1. Bi-LSTM网络</h2>
+            <blockquote>
+                <ul>
+                    <li>
+                        文本数据是一种序列数据，通常采用RNN模型进行训练。
+                    </li>
+                    <li>
+                        LSTM是一种 RNN 特殊的类型，可以学习长期依赖信息，并有效解决了梯度弥散的问题。其LSTM单元和具体实现公式如下所示<br>
+                        <center>
+                            <img src="/static/img/define_img2.png " width="600px ">
+                        </center>
+                    </li>
+                    <li>
+                        <br>而传统的LSTM网络只能由过去的信息推断未来的信息，然而对于文本数据，一句话中的单词不仅和前后文内容均相关。该问题可以通过叠加双向的LSTM有效处理，即Bi-LSTM网络。如下图所示，其中每一个A都表示一个LSTM单元。而本文也基于Bi-LSTM网络构建实体识别和关系抽取模型。<br>
+                        <center>
+                            <img src="/static/img/define_img3.png " width="600px ">
+                        </center>
+                    </li>
+                </ul>
+            </blockquote>
+        </div>
+        <div class="container">
+            <h2>2. Stage1：Recognize Entity 识别实体</h2>
+            <blockquote>
+                <ul>
+                    <li>
+                        <center>
+                            <img src="/static/img/define_img4.png " width="600px ">
+                        </center>
+                    </li>
+                    <li>
+                        HSLNN的第一阶段为实体的识别，由Entity Block实现。该阶段输入预训练（转换为向量和词嵌入）后的连续向量，输出为BIOES标签。由于每个单词的实体标签唯一，故该阶段的序列标签任务是一个典型的分类任务。
+                        <blockquote>
+                            <ul>
+
+                                <li>
+                                    <b>Bi-LSTM</b>：把词嵌入向量输入Bi-LSTM层中，对于一个具体的单词`m_k`，前向LSTM处理`m_1`到`m_k`的语义和序列信息，后向LSTM处理`m_n`到`m_k`的语义和序列信息，将二者的隐藏层合并后，得到`h_t`并输出
+                                </li>
+                                <li>
+                                    <b>Softmax</b>：将Bi-LSTM的隐藏层`h_t`经过线性运算和`softmax`处理，输出一个5维向量，分别代表取得BIOES标签的概率，选取概率最大的作为该单词的实体标签
+                                </li>
+                            </ul>
+                        </blockquote>
+                    </li>
+                </ul>
+
+            </blockquote>
+        </div>
+        <div class="container">
+            <h2>3. Tag-based Attention 注意力机制</h2>
+            <blockquote>
+                <ul>
+                    <center>
+                        <img src="/static/img/define_img5.png " width="600px ">
+                    </center>
+                    <li>注意力机制输入采用基于标签的注意力机制的原因有两方面：
+                        <blockquote>
+                            <ul>
+
+                                <li>
+                                    对于一个给定的的实体，模型应当能够侧重关注于能与其进行关系配对的实体
+                                    <p style="text-align: center;"> `A_e = softmax (H H_e^T) `</p>
+                                </li>
+                                <li>
+                                    对于特定的两个实体之间存在众多关系，此时句子中的其他词语（包括）如果能够暗示实体间的关系，则称之为触发词<b>trigger word</b>。触发词也应当被模型重视。
+                                    <p style="text-align: center;"> `A_o=softmax(H H_o^T)`</p>
+                                </li>
+                                <li>
+                                    结合上述两项，各一给出基于标签的注意力机制向量的实现过程
+                                    <p style="text-align: center;">`A=A_e H_e+A_o H_o + H`</p>
+                                </li>
+                            </ul>
+                        </blockquote>
+                    </li>
+                </ul>
+            </blockquote>
+        </div>
+        <div class="container">
+            <h2>4. Stage2：Identity Relation 抽取关系</h2>
+            <blockquote>
+                <ul>
+                    <center>
+                        <img src="/static/img/define_img6.png " width="600px ">
+                    </center>
+                    <li>HSLNN的第一阶段为关系的抽取，由Relation Block实现。该阶段输入为预训练（转换为向量和词嵌入）后的连续向量和由基于标签的注意力机制所得到的权重向量，输出为每一个单词的关系标签。由于每个单词的关系标签不唯一，可能没有，也可能有多个，故该阶段的序列标签任务是一个标记任务，不能简单通过分类模型实现。
+                        <blockquote>
+                            <ul>
+
+                                <li>
+                                    <b>Bi-LSTM</b>：输<b>m</b>和<b>a</b>，输出Bi-LSTM的隐层。利用Bi-LSTM对文本进行处理
+                                </li>
+                                <li>
+                                    <b>Sigmoid</b>：输入Bi-LSTM的隐藏层，输出各个关系标签的分布向量<b>Q</b>，是一个`N_r`维向量，经过sigmoid函数变换后分别代表每一种关系成立的概率。只要某一分量的概率大于0.5，则认为成立该分量所代表的关系。
+                                </li>
+                            </ul>
+                        </blockquote>
+                    </li>
+                </ul>
+            </blockquote>
+        </div>
+    </div>
+</body>
+
+</html>
+
+</html>

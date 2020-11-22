@@ -1,0 +1,86 @@
+.btn1 {
+    text-decoration: none;
+    color: #fff;
+    background-color: #4abdac;
+    border-color: #4abdac;
+    display: inline-block;
+    white-space: nowrap;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    padding: .375rem 1.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    transition: color .25s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.btn1:hover {
+    background-color: #f78733;
+}
+
+.btn-border1 {
+    border-radius: .25rem 0 0 .25rem;
+}
+
+.btn-border2 {
+    border-radius: 0 .25rem .25rem 0;
+}
+
+.btn-group,
+.btn-group-vertical {
+    position: relative;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    vertical-align: middle
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn2_blank {
+    text-decoration: none;
+    color: #3d4746;
+    background-color: #fff;
+    border-color: #fff;
+    display: inline-block;
+    white-space: nowrap;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    transition: color .25s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.btn2_blank:hover {
+    background-color: #4abdac;
+    color: white;
+}
+
+.btn2_colored {
+    text-decoration: none;
+    color: #fff;
+    background-color: #4abdac;
+    border-color: #4abdac;
+    display: inline-block;
+    white-space: nowrap;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    transition: color .25s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.btn-border3 {
+    border-radius: 0.25rem;
+}
+
+.center2 {
+    text-align: center;
+    padding-left: 10cm;
+    padding-right: 10cm;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply</title>
+
+    <link rel="styleSheet" href="/static/common.css" />
+    <link rel="styleSheet" href="/static/btn1.css" />
+    <link rel="styleSheet" href="/static/text1.css" />
+
+    <link rel="styleSheet" href="/static/text2.css" />
+    <script type="text/javascript" src="/static/dist/vis.js"></script>
+    <link href="/static/dist/vis.css" rel="stylesheet" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+</head>
+
+<body>
+
+    <div style="float: right;padding-right: 2rem;">
+        <a class="btn2_blank" href="/app01/home"> Home </a><a class="btn2_blank" href="/app01/intro">Intro</a><a class="btn2_blank" href="/app01/define">Definition</a><a class="btn2_blank" href="/app01/loss_func">LossFunc</a><a class="btn2_colored btn-border2"
+            href="/app02/apply">Apply</a>
+    </div>
+
+    <div style="padding: 30px;background-color: #fff;"></div>
+
+
+
+    <div class="centered bottom_gray" style="background: #f0f0f0;">
+
+        <div style="padding-top: 20px;padding-left:20%;padding-right:20%;background-color: #f0f0f0ff;"></div>
+        <h2 style="font-size: 32px;">Entity and Relation Extractor</h2>
+    </div>
+
+    <div style="width:100%;padding-bottom:30px">
+        <div style="background-color: #f0f0f0;float: left ;width:50%;height:350px;">
+            <form method='POST' action="/app02/apply" class="tex_input22 center">
+
+                <div style="font-size: 20px;padding-left:10%;padding-top:5%;width:90%;height:300px">
+                    <textarea type="text " placeholder="Input a sentence or a paragraph " class="btn-border1 tex_input3 txa_tran" name="sentence">{{bfr}}</textarea>
+                </div>
+
+        </div>
+
+
+        <div id="VIS_draw" style="float: left;width:50%;height:350px;background-color:#f0f0f0"></div>
+    </div>
+
+    <div style="padding-top: 20px;padding-bottom:20px;float:none;background-color:#f0f0f0" class="centered">
+
+        <input type="submit" class="btn1 btn-border3" value="RUN" style="float: none;">
+        <div style="padding-bottom: 30px">
+            <p class="warning centered"> {{warn}} </p>
+        </div>
+    </div>
+    </form>
+</body>
+
+</html>
+
+
+'''
