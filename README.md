@@ -6,3 +6,4 @@
 * ### best_model_parameters是训练好的模型参数，实体识别准确率96.78%，关系识别准确率93.21%  
 * ### data_process文件夹中relation_label_tag.txt文件中表明可识别的48中关系类别  
 * ### 实体识别中实体分为Begin，Inside，Outside，End，Single五类  
+* ### mysite文件是将实体识别和关系提取应用可视化的页面，有对模型的介绍，可以在输入框中对任意一句话提取实体与关系
