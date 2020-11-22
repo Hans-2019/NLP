@@ -1,1 +1,1 @@
-命令行中运行python manage.py runserver
+* ### 命令行中运行python manage.py runserver
